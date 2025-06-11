@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExamWeb_NguyenMinhQuan.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250611011716_SeedData")]
-    partial class SeedData
+    [Migration("20250611022101_InitSchema")]
+    partial class InitSchema
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,14 +42,13 @@ namespace ExamWeb_NguyenMinhQuan.Migrations
                     b.Property<int>("ThoiLuong")
                         .HasColumnType("int");
 
-                    b.Property<string>("TrongNuoc")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("TrongNuoc")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Tuade")
                         .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.HasKey("Id");
 
@@ -62,7 +61,7 @@ namespace ExamWeb_NguyenMinhQuan.Migrations
                             DienVien = "Son Ye Jin, Hyun Bin",
                             GiaVe = 120000.5,
                             ThoiLuong = 120,
-                            TrongNuoc = "false",
+                            TrongNuoc = false,
                             Tuade = "Hạ cánh nơi anh"
                         },
                         new
@@ -71,7 +70,7 @@ namespace ExamWeb_NguyenMinhQuan.Migrations
                             DienVien = "Trần Phương Anh, Đông Nhi",
                             GiaVe = 100000.0,
                             ThoiLuong = 105,
-                            TrongNuoc = "true",
+                            TrongNuoc = true,
                             Tuade = "Mắt biếc"
                         },
                         new
@@ -80,7 +79,7 @@ namespace ExamWeb_NguyenMinhQuan.Migrations
                             DienVien = "Song Kang Ho",
                             GiaVe = 150000.0,
                             ThoiLuong = 132,
-                            TrongNuoc = "false",
+                            TrongNuoc = false,
                             Tuade = "Parasite"
                         },
                         new
@@ -89,7 +88,7 @@ namespace ExamWeb_NguyenMinhQuan.Migrations
                             DienVien = "Leonardo DiCaprio",
                             GiaVe = 200000.0,
                             ThoiLuong = 195,
-                            TrongNuoc = "false",
+                            TrongNuoc = false,
                             Tuade = "Titanic"
                         },
                         new
@@ -98,7 +97,7 @@ namespace ExamWeb_NguyenMinhQuan.Migrations
                             DienVien = "Trấn Thành, Kiều Minh Tuấn",
                             GiaVe = 90000.0,
                             ThoiLuong = 130,
-                            TrongNuoc = "true",
+                            TrongNuoc = true,
                             Tuade = "Bố già"
                         },
                         new
@@ -107,7 +106,7 @@ namespace ExamWeb_NguyenMinhQuan.Migrations
                             DienVien = "Nhã Phương",
                             GiaVe = 110000.0,
                             ThoiLuong = 115,
-                            TrongNuoc = "true",
+                            TrongNuoc = true,
                             Tuade = "Gái già lắm chiêu"
                         });
                 });
